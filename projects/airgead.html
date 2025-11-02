@@ -1,58 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Airgead Banking App | Portfolio</title>
-<link rel="stylesheet" href="/hollyrenfrew/projects/style.css">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Airgead Banking Calculator | Portfolio</title>
+<link rel="stylesheet" href="/hollyrenfrew/projects/style.css" />
 </head>
 <body>
 
 <header>
-    <h1>Airgead Banking Application</h1>
+  <h1>Airgead Banking Investment Calculator (CS-210)</h1>
+  <p>Algorithms & Data Structures Category</p>
 </header>
 
 <nav>
-    <a href="../index.html">Home</a>
-    <a href="opengl.html">OpenGL</a>
-    <a href="brickbreak.html">Brick Break</a>
-    <a href="airgead.html">Airgead</a>
+  <a href="../index.html">Home</a>
+  <a href="weighttracker.html">Weight Tracker (Android)</a>
+  <a href="airgead.html" aria-current="page">Airgead</a>
+  <a href="python_rpg.html">Python RPG (DB Plan)</a>
 </nav>
 
 <div class="container">
-    <h2>Project Overview</h2>
-    <p>
-        The Airgead Banking App is a financial simulation tool that calculates investment growth over time.
-        It allows users to enter savings goals, rates, and time frames to analyze outcomes.
-    </p>
+  <h2>Project Overview</h2>
+  <p>
+    A C++ console program that computes compound interest and reports year-end balances.
+    This artifact is used for the <strong>Algorithms &amp; Data Structures</strong> category in CS-499.
+  </p>
 
-    <h2>Key Features</h2>
-    <ul>
-        <li>User-input driven financial calculations</li>
-        <li>Formatted investment reports</li>
-        <li>Data validation and input handling</li>
-        <li>Clear menu-driven interface</li>
-    </ul>
+  <h2>Key Features</h2>
+  <ul>
+    <li>User-driven inputs: initial investment, monthly deposit, annual interest, years</li>
+    <li>Formatted annual report</li>
+    <li>Input validation and error handling</li>
+  </ul>
 
-    <h2>Planned Enhancements</h2>
-    <ul>
-        <li>Store and retrieve financial scenarios using a real database</li>
-        <li>Add data persistence and reporting</li>
-        <li>Improve input validation security</li>
-    </ul>
+  <h2>Planned Enhancement (per CS-499)</h2>
+  <p>
+    Upgrade to <strong>monthly compounding with annual aggregation</strong> and store results in a dynamic
+    <code>std::vector</code> of structs <em>(year, ending balance, interest earned)</em>. Improves accuracy,
+    scalability, and data access patterns.
+  </p>
 
-    <h2>Skills Demonstrated</h2>
-    <p>
-        Data handling, C++ logic, input validation, financial computation algorithms, refactoring.
-    </p>
+  <h2>Skills Demonstrated</h2>
+  <ul>
+    <li>Algorithm refinement (iterative monthly compounding)</li>
+    <li>Data structure use (<code>std::vector</code> &amp; custom record type)</li>
+    <li>Modular refactoring and readability</li>
+  </ul>
 
-    <h2>Repository</h2>
-    <p><a href="https://github.com/hollyrenfrew/Airgead-Banking target="_blank">View Code on GitHub</a></p>
+  <h2>Aligned Course Outcomes</h2>
+  <ul>
+    <li><strong>3.</strong> Design &amp; evaluate computing solutions (algorithmic trade-offs)</li>
+    <li><strong>4.</strong> Use well-founded techniques, skills, and tools (C++ STL, modular design)</li>
+  </ul>
+
+  <h2>Repository</h2>
+  <p>
+    <a href="https://github.com/hollyrenfrew/Airgead-Banking" target="_blank" rel="noopener">View Code on GitHub</a>
+  </p>
 </div>
 
-<footer>
-    © 2025 Holly Renfrew
-</footer>
-
+<footer>© 2025 Holly Renfrew</footer>
 </body>
 </html>
