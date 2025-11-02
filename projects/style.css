@@ -102,3 +102,8 @@ footer small { opacity: 0.8; }
   .container { margin: 16px; padding: 18px; }
   nav a { display: inline-block; margin: 6px 10px; }
 }
+
+
+header h1, header p {
+  color: white !important;
+}
