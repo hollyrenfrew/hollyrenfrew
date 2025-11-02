@@ -1,16 +1,16 @@
-## Hi there 👋
-
-<!--
-**hollyrenfrew/hollyrenfrew** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
-
-Here are some ideas to get you started:
-
-- 🔭 I’m currently working on ...
-- 🌱 I’m currently learning ...
-- 👯 I’m looking to collaborate on ...
-- 🤔 I’m looking for help with ...
-- 💬 Ask me about ...
-- 📫 How to reach me: ...
-- 😄 Pronouns: ...
-- ⚡ Fun fact: ...
--->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My CS ePortfolio</title>
+</head>
+<body>
+    <h1>Holly Renfrew – Computer Science ePortfolio</h1>
+    <p>Welcome to my CS portfolio. This page will showcase my projects, including:</p>
+    <ul>
+        <li>OpenGL Living Room Project</li>
+        <li>Brick Break Game</li>
+        <li>Python Text Adventure with Database</li>
+    </ul>
+    <p>More updates will be added throughout the term.</p>
+</body>
+</html>
