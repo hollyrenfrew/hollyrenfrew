@@ -1,9 +1,4 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title>My CS ePortfolio</title>
-</head>
-<body>
+My CS ePortfolio
     <h1>Holly Renfrew – Computer Science ePortfolio</h1>
     <p>Welcome to my CS portfolio. This page will showcase my projects, including:</p>
     <ul>
@@ -12,5 +7,3 @@
         <li>Python Text Adventure with Database</li>
     </ul>
     <p>More updates will be added throughout the term.</p>
-</body>
-</html>
