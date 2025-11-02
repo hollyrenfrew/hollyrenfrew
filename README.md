@@ -10,7 +10,7 @@ It showcases major projects I completed in my Bachelor of Science in Computer Sc
 ## Live Site
 
 GitHub Pages Site:  
-[https://hollyrenfrew.github.io/<your-repo-name](https://hollyrenfrew.github.io/hollyrenfrew/)
+[https://hollyrenfrew.github.io/hollyrenfrew/](https://hollyrenfrew.github.io/hollyrenfrew/)
 
 ## Project Structure
 
