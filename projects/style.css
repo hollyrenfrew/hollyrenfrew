@@ -43,7 +43,7 @@ nav a:hover, nav a:focus {
   box-shadow: 0 3px 12px rgba(0,0,0,0.08);
 }
 
-h1, h2, h3 { color: #181818; margin-top: 0; }
+.container h1, .container h2, .container h3 { color: #181818; margin-top: 0; } 
 h1 { font-size: 1.9rem; }
 h2 { font-size: 1.4rem; margin-top: 14px; }
 p { margin: 10px 0 16px; }
