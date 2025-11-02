@@ -1,16 +1,98 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>My CS ePortfolio</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Holly Renfrew | Computer Science Portfolio</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f5f7fa;
+            margin: 0;
+            padding: 0;
+            line-height: 1.6;
+        }
+        header {
+            background-color: #181818;
+            color: white;
+            text-align: center;
+            padding: 25px 0;
+        }
+        nav {
+            background: #222;
+            padding: 10px;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+            font-weight: bold;
+        }
+        nav a:hover {
+            color: #4ca3ff;
+        }
+        .container {
+            max-width: 900px;
+            margin: 35px auto;
+            background: white;
+            padding: 30px;
+            border-radius: 6px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        h2 {
+            color: #181818;
+        }
+        ul {
+            list-style-type: square;
+            padding-left: 18px;
+        }
+        footer {
+            text-align: center;
+            padding: 20px 0;
+            margin-top: 40px;
+            background-color: #181818;
+            color: white;
+            font-size: 0.9em;
+        }
+    </style>
 </head>
 <body>
-    <h1>Holly Renfrew – Computer Science ePortfolio</h1>
-    <p>Welcome to my CS portfolio. This page will showcase my projects, including:</p>
-    <ul>
-        <li>OpenGL Living Room Project</li>
-        <li>Brick Break Game</li>
-        <li>Python Text Adventure with Database</li>
-    </ul>
-    <p>More updates will be added throughout the term.</p>
+    <header>
+        <h1>Holly Renfrew</h1>
+        <p>Software Developer | Computer Science Student</p>
+    </header>
+
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="projects/opengl.html">OpenGL Living Room</a>
+        <a href="projects/brickbreak.html">Brick Break Game</a>
+        <a href="projects/airgead.html">Airgead Banking App</a>
+    </nav>
+
+    <div class="container">
+        <h2>Welcome</h2>
+        <p>
+            Welcome to my Computer Science ePortfolio. This site highlights my development work,
+            programming progress, and key artifacts from my studies and independent practice.
+        </p>
+
+        <h2>Featured Projects</h2>
+        <ul>
+            <li><a href="projects/opengl.html">OpenGL 3D Living Room Simulation</a></li>
+            <li><a href="projects/brickbreak.html">Brick Break Game</a></li>
+            <li><a href="projects/airgead.html">Airgead Financial Calculator</a></li>
+        </ul>
+
+        <h2>Future Additions</h2>
+        <p>
+            A Python text adventure game with a database system will also be added soon.
+            This project will demonstrate database integration, data handling, and interactive program design.
+        </p>
+    </div>
+
+    <footer>
+        © 2025 Holly Renfrew | Computer Science Portfolio
+    </footer>
 </body>
 </html>
