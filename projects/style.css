@@ -1,35 +1,55 @@
 /* =========================================
-   Holly Renfrew • Portfolio Styles
-   Location: /projects/style.css
+   Accessible, pretty theme with easy swaps
+   - Default: Sky (blue)
+   - Optional: Indigo / Emerald accents
    ========================================= */
 
-/* ---------- CSS Variables (easy theming) ---------- */
 :root{
-  --bg: #f6f8fb;
-  --text: #1a1d23;
-  --muted: #5b6372;
+  /* Base */
+  --bg: #f7f8fb;            /* page background */
+  --text: #101318;          /* main text */
+  --muted: #5c6473;         /* secondary text */
 
-  --brand: #4ca3ff;
-  --brand-600: #2d8ef5;
-
+  /* Surfaces */
   --surface: #ffffff;
-  --surface-border: #e6eaf0;
-  --surface-shadow: 0 4px 14px rgba(16,24,40,0.06);
+  --surface-border: #e5e9f1;
+  --surface-shadow: 0 6px 18px rgba(17, 24, 39, 0.06);
 
-  --header-bg: #171a20;
-  --nav-bg: #1d2129;
+  /* Header/Nav */
+  --header-bg: #12151b;     /* near-black for crisp contrast */
+  --nav-bg: #171b22;
+
+  /* Accent (Sky / Blue) */
+  --brand: #2f86ff;
+  --brand-600: #2a74df;
+  --brand-700: #1f5bb1;
+
+  /* Nav link colors */
   --nav-link: #ffffff;
   --nav-link-hover: var(--brand);
+
+  /* Misc */
   --nav-active-underline: 3px;
-
   --radius: 12px;
-  --radius-sm: 8px;
+  --radius-sm: 9px;
 
-  --font-sans: "Inter", "Segoe UI", Roboto, Helvetica, Arial, system-ui, -apple-system, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+  --font-sans: "Inter", "Segoe UI", Roboto, Helvetica, Arial, system-ui, -apple-system, "Apple Color Emoji", "Segoe UI Emoji";
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
 }
 
-/* ---------- Global / Reset-ish ---------- */
+/* ----- Optional accent themes: add class to <html> ----- */
+html.theme-indigo{
+  --brand: #635bff;         /* bright indigo */
+  --brand-600: #574fe6;
+  --brand-700: #453ecc;
+}
+html.theme-emerald{
+  --brand: #10b981;         /* emerald */
+  --brand-600: #0da872;
+  --brand-700: #0a8e60;
+}
+
+/* ---------- Global ---------- */
 * { box-sizing: border-box; }
 html, body { height: 100%; }
 html { scroll-behavior: smooth; }
@@ -38,36 +58,35 @@ body{
   font-family: var(--font-sans);
   color: var(--text);
   background: var(--bg);
-  line-height: 1.6;
+  line-height: 1.65;
   display: flex;
   flex-direction: column;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
-/* Improve typography rhythm */
 p, ul, ol, pre, table, blockquote { margin: 0 0 1rem; }
-h1, h2, h3 { margin: 0 0 .6rem; line-height: 1.25; color: #0f1218; }
-h1 { font-size: clamp(1.8rem, 1.6rem + 1vw, 2.2rem); }
-h2 { font-size: clamp(1.25rem, 1.1rem + .6vw, 1.5rem); margin-top: 1.2rem; }
+h1, h2, h3 { margin: 0 0 .65rem; line-height: 1.22; color: #0d1117; }
+h1 { font-size: clamp(1.9rem, 1.6rem + 1.2vw, 2.4rem); }
+h2 { font-size: clamp(1.3rem, 1.15rem + .6vw, 1.6rem); margin-top: 1.2rem; }
 h3 { font-size: 1.1rem; margin-top: 1rem; }
 
-/* Links */
 a { color: var(--brand-600); text-decoration: none; }
-a:hover, a:focus { text-decoration: underline; }
+a:hover, a:focus { text-decoration: underline; text-underline-offset: 3px; }
 
-/* Lists */
 ul { padding-left: 1.25rem; }
-li { margin: .35rem 0; }
+li { margin: .4rem 0; }
 
 /* ---------- Header ---------- */
 header{
   background: var(--header-bg);
   color: #fff;
   text-align: center;
-  padding: 28px 14px;
-  border-bottom: 1px solid rgba(255,255,255,0.06);
+  padding: 30px 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.08);
 }
-header h1{ color: #fff; font-weight: 700; }
-header p{ margin-top: .35rem; color: #d4d7dd; }
+header h1{ color: #fff; font-weight: 700; letter-spacing: .2px; }
+header p{ margin-top: .4rem; color: #cbd3df; }
 
 /* ---------- Navigation ---------- */
 nav{
@@ -75,16 +94,16 @@ nav{
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: clamp(.5rem, 2vw, 1.25rem);
-  padding: 12px 16px;
+  gap: clamp(.6rem, 2vw, 1.25rem);
+  padding: 12px 18px;
   border-bottom: 1px solid rgba(255,255,255,0.06);
 }
 nav a{
   color: var(--nav-link);
-  font-weight: 600;
-  text-decoration: none;
+  font-weight: 650;
+  letter-spacing: .15px;
   position: relative;
-  padding: 4px 2px;
+  padding: 6px 2px;
   transition: color .15s ease;
 }
 nav a:hover,
@@ -104,9 +123,9 @@ nav a.active::after{
   background: var(--brand);
 }
 
-/* Focus ring for accessibility */
+/* Keyboard focus ring (accessible) */
 :focus-visible{
-  outline: 2px solid var(--brand);
+  outline: 2.5px solid var(--brand);
   outline-offset: 3px;
   border-radius: 6px;
 }
@@ -115,43 +134,43 @@ nav a.active::after{
 .container{
   flex: 1 0 auto;
   width: min(100%, 980px);
-  margin: 28px auto;
+  margin: 30px auto;
   padding: 28px;
   background: var(--surface);
   border: 1px solid var(--surface-border);
   border-radius: var(--radius);
   box-shadow: var(--surface-shadow);
 }
+.container h1, .container h2, .container h3 { color: #0d1117 !important; }
 
-/* Make headings inside container use dark text for contrast */
-.container h1, .container h2, .container h3 { color: #0f1218 !important; }
-
-/* ---------- Buttons (utility class) ---------- */
+/* ---------- Buttons ---------- */
 .button{
   display: inline-block;
   padding: 10px 14px;
-  border-radius: 10px;
+  border-radius: 999px;
   background: var(--brand);
   color: #fff;
   text-decoration: none;
-  font-weight: 700;
-  transition: transform .06s ease, filter .15s ease;
+  font-weight: 750;
+  letter-spacing: .2px;
+  transition: transform .06s ease, filter .15s ease, box-shadow .15s ease;
+  box-shadow: 0 6px 14px rgba(47, 134, 255, 0.25);
 }
-.button:hover{ filter: brightness(0.96); }
+.button:hover{ filter: brightness(0.97); }
 .button:active{ transform: translateY(1px); }
 
-/* ---------- Cards (for screenshots/sections) ---------- */
+/* ---------- Cards ---------- */
 .card-grid{
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 16px;
+  gap: 18px;
 }
 .card{
   background: #fff;
   border: 1px solid var(--surface-border);
   border-radius: var(--radius-sm);
   padding: 14px;
-  box-shadow: 0 2px 10px rgba(16,24,40,0.05);
+  box-shadow: 0 3px 12px rgba(16,24,40,0.06);
 }
 .card img{
   width: 100%;
@@ -159,28 +178,51 @@ nav a.active::after{
   border-radius: 8px;
 }
 
-/* ---------- Code & Preformatted ---------- */
-code, pre{ font-family: var(--font-mono); }
+/* ---------- Code ---------- */
+code, pre{ font-family: var(--font-mono); font-size: .95rem; }
 pre{
-  background: #0f1115;
-  color: #e6e7eb;
-  padding: 14px;
+  background: #0f1115;      /* dark for contrast */
+  color: #e7eaf0;
+  padding: 16px;
   border-radius: var(--radius-sm);
   overflow-x: auto;
-  border: 1px solid #11151b;
+  border: 1px solid #121620;
 }
-
-/* Inline code */
 code{
   background: #eef3ff;
   color: #0f1b33;
-  padding: .1rem .35rem;
+  padding: .12rem .4rem;
   border-radius: 6px;
   border: 1px solid #dbe6ff;
 }
 
-/* ---------- Tables (if used) ---------- */
-table{
-  width: 100%;
-  border-collapse: collapse;
-  font-size: .98
+/* ---------- Tables ---------- */
+table{ width: 100%; border-collapse: collapse; font-size: .98rem; }
+th, td{ padding: .65rem .75rem; border-bottom: 1px solid var(--surface-border); }
+th{ text-align: left; color: #0d1117; background: #f2f5fb; }
+
+/* ---------- Footer ---------- */
+footer{
+  background: var(--header-bg);
+  color: #cfd6e2;
+  text-align: center;
+  padding: 18px 12px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  flex-shrink: 0;
+}
+footer small{ opacity: .95; }
+
+/* ---------- Images ---------- */
+img{ max-width: 100%; height: auto; }
+
+/* ---------- Responsive ---------- */
+@media (max-width: 720px){
+  .container{ margin: 18px; padding: 20px; }
+  nav{ flex-wrap: wrap; gap: .6rem 1rem; }
+  nav a.active::after{ bottom: -4px; }
+}
+
+/* ---------- Reduce Motion ---------- */
+@media (prefers-reduced-motion: reduce){
+  *{ animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
