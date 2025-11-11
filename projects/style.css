@@ -1,11 +1,11 @@
-/* ---------- Design tokens ---------- */
+/* ========== Tokens ========== */
 :root{
   /* Base */
   --bg: #f7f8fb;
   --text: #101318;
   --muted: #5c6473;
 
-  /* Header text */
+  /* Header */
   --header-text: #ffffff;
   --header-muted: #cbd3df;
 
@@ -14,16 +14,16 @@
   --surface-border: #e5e9f1;
   --surface-shadow: 0 6px 18px rgba(17, 24, 39, 0.06);
 
-  /* Header/Nav surfaces */
+  /* Header / Nav */
   --header-bg: #12151b;
   --nav-bg: #171b22;
 
-  /* Accent (Sky / Blue) */
+  /* Accent (Sky) */
   --brand: #2f86ff;
   --brand-600: #2a74df;
   --brand-700: #1f5bb1;
 
-  /* Nav link colors */
+  /* Nav links */
   --nav-link: #ffffff;
   --nav-link-hover: var(--brand);
 
@@ -36,55 +36,11 @@
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
 }
 
+/* ========== Themes ========== */
 
-html.theme-indigo {
-  /* Base tones */
-  --bg: #0f0f1a;                 /* rich indigo-black background */
-  --text: #e9e9f9;               /* soft off-white text */
-  --muted: #a8a8d9;              /* secondary text tint */
-
-  /* Surfaces */
-  --surface: #191931;            /* panels / containers */
-  --surface-border: #2a2a52;
-  --surface-shadow: 0 6px 18px rgba(50, 45, 120, 0.45);
-
-  /* Header/Nav */
-  --header-bg: #13132a;
-  --nav-bg: #171739;
-
-  /* Accents */
-  --brand: #8b80ff;              /* vibrant indigo */
-  --brand-600: #776ce6;
-  --brand-700: #5d52cc;
-
-  /* Navigation links */
-  --nav-link: #eaeaff;
-  --nav-link-hover: var(--brand);
-
-  /* Header text */
-  --header-text: #efefff;
-  --header-muted: #c5c5ee;
-}
-
-/* Optional: indigo-tinted code blocks for this theme */
-html.theme-indigo pre {
-  background: #1a1a33;
-  color: #e8e9ff;
-  border: 1px solid #2a2a52;
-}
-html.theme-indigo code {
-  background: #1f1f3f;
-  color: #e8e9ff;
-  border-color: #2a2a52;
-}
-html.theme-indigo th {
-  background: #1b1b38;
-  color: var(--text);
-}
-
-/* Emerald: warm neutral mint tone */
+/* Emerald (light) */
 html.theme-emerald{
-  --bg: #f2fbf7;                 /* gentle greenish-white background */
+  --bg: #f2fbf7;
   --surface: #ffffff;
   --surface-border: #d6ece1;
   --surface-shadow: 0 6px 18px rgba(17, 77, 57, 0.07);
@@ -100,8 +56,7 @@ html.theme-emerald{
   --nav-link-hover: var(--brand);
 }
 
-
-/* ----- dark theme ----- */
+/* Dark */
 html.theme-dark{
   --bg: #0f1217;
   --text: #e8ecf3;
@@ -125,7 +80,47 @@ html.theme-dark{
   --header-muted: #bfc8d8;
 }
 
-/* ---------- Global ---------- */
+/* Indigo (alternate dark) */
+html.theme-indigo{
+  --bg: #0f0f1a;
+  --text: #e9e9f9;
+  --muted: #a8a8d9;
+
+  --surface: #191931;
+  --surface-border: #2a2a52;
+  --surface-shadow: 0 6px 18px rgba(50, 45, 120, 0.45);
+
+  --header-bg: #13132a;
+  --nav-bg: #171739;
+
+  --brand: #8b80ff;
+  --brand-600: #776ce6;
+  --brand-700: #5d52cc;
+
+  --nav-link: #eaeaff;
+  --nav-link-hover: var(--brand);
+
+  --header-text: #efefff;
+  --header-muted: #c5c5ee;
+}
+
+/* Indigo tweaks */
+html.theme-indigo pre{
+  background: #1a1a33;
+  color: #e8e9ff;
+  border: 1px solid #2a2a52;
+}
+html.theme-indigo code{
+  background: #1f1f3f;
+  color: #e8e9ff;
+  border-color: #2a2a52;
+}
+html.theme-indigo th{
+  background: #1b1b38;
+  color: var(--text);
+}
+
+/* ========== Base ========== */
 * { box-sizing: border-box; }
 html, body { height: 100%; }
 html { scroll-behavior: smooth; }
@@ -147,8 +142,7 @@ h1 { font-size: clamp(1.9rem, 1.6rem + 1.2vw, 2.4rem); }
 h2 { font-size: clamp(1.3rem, 1.15rem + .6vw, 1.6rem); margin-top: 1.2rem; }
 h3 { font-size: 1.1rem; margin-top: 1rem; }
 
-/* Links: always underlined for readability */
-a {
+a{
   color: var(--brand-600);
   text-decoration: underline;
   text-decoration-thickness: 2px;
@@ -156,11 +150,10 @@ a {
 }
 a:hover, a:focus { text-decoration-thickness: 3px; }
 
-/* Lists */
 ul { padding-left: 1.25rem; }
 li { margin: .4rem 0; }
 
-/* ---------- Header ---------- */
+/* Header */
 header{
   background: var(--header-bg);
   color: var(--header-text);
@@ -171,7 +164,7 @@ header{
 header h1{ color: var(--header-text) !important; font-weight: 700; letter-spacing: .2px; }
 header p{ margin-top: .4rem; color: var(--header-muted) !important; }
 
-/* ---------- Navigation ---------- */
+/* Nav */
 nav{
   background: var(--nav-bg);
   display: flex;
@@ -189,14 +182,11 @@ nav a{
   padding: 6px 2px;
   transition: color .15s ease;
 }
-nav a:hover,
-nav a:focus-visible{
+nav a:hover, nav a:focus-visible{
   color: var(--nav-link-hover);
   outline: none;
 }
-nav a.active{
-  color: var(--nav-link-hover);
-}
+nav a.active{ color: var(--nav-link-hover); }
 nav a.active::after{
   content: "";
   position: absolute;
@@ -206,14 +196,14 @@ nav a.active::after{
   background: var(--brand);
 }
 
-/* Keyboard focus ring (accessible) */
+/* Focus */
 :focus-visible{
   outline: 2.5px solid var(--brand);
   outline-offset: 3px;
   border-radius: 6px;
 }
 
-/* ---------- Main Container ---------- */
+/* Container */
 .container{
   flex: 1 0 auto;
   width: min(100%, 980px);
@@ -225,13 +215,13 @@ nav a.active::after{
   box-shadow: var(--surface-shadow);
 }
 
-/* Scoped heading colors so header title stays bright */
+/* Headings inside surfaces */
 .container h1, .container h2, .container h3,
-.card h1, .card h2, .card h3 {
+.card h1, .card h2, .card h3{
   color: var(--text);
 }
 
-/* ---------- Buttons ---------- */
+/* Buttons */
 .button{
   display: inline-block;
   padding: 10px 14px;
@@ -247,7 +237,7 @@ nav a.active::after{
 .button:hover{ filter: brightness(0.97); }
 .button:active{ transform: translateY(1px); }
 
-/* ---------- Cards ---------- */
+/* Cards */
 .card-grid{
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
@@ -260,13 +250,9 @@ nav a.active::after{
   padding: 14px;
   box-shadow: 0 3px 12px rgba(16,24,40,0.06);
 }
-.card img{
-  width: 100%;
-  height: auto;
-  border-radius: 8px;
-}
+.card img{ width: 100%; height: auto; border-radius: 8px; }
 
-/* ---------- Code ---------- */
+/* Code */
 code, pre{ font-family: var(--font-mono); font-size: .95rem; }
 pre{
   background: #0f1115;
@@ -283,7 +269,7 @@ code{
   border-radius: 6px;
   border: 1px solid #dbe6ff;
 }
-/* Dark variant for code blocks */
+/* Dark code variant */
 html.theme-dark pre{
   background: #0d1422;
   color: #d9e4ff;
@@ -295,13 +281,13 @@ html.theme-dark code{
   border-color: #1a2740;
 }
 
-/* ---------- Tables ---------- */
+/* Tables */
 table{ width: 100%; border-collapse: collapse; font-size: .98rem; }
 th, td{ padding: .65rem .75rem; border-bottom: 1px solid var(--surface-border); }
 th{ text-align: left; color: var(--text); background: #f2f5fb; }
 html.theme-dark th{ background: #121723; }
 
-/* ---------- Footer ---------- */
+/* Footer */
 footer{
   background: var(--header-bg);
   color: #cfd6e2;
@@ -312,17 +298,82 @@ footer{
 }
 footer small{ opacity: .95; }
 
-/* ---------- Images ---------- */
+/* Images */
 img{ max-width: 100%; height: auto; }
 
-/* ---------- Responsive ---------- */
+/* Responsive */
 @media (max-width: 720px){
   .container{ margin: 18px; padding: 20px; }
   nav{ flex-wrap: wrap; gap: .6rem 1rem; }
   nav a.active::after{ bottom: -4px; }
 }
 
-/* ---------- Reduce Motion ---------- */
+/* Reduce Motion */
 @media (prefers-reduced-motion: reduce){
   *{ animation: none !important; transition: none !important; scroll-behavior: auto !important; }
+}
+
+/* ========== Themed dropdown ========== */
+
+/* Base frosted glass select */
+.theme-select{
+  appearance: none;
+  border-radius: 999px;
+  padding: 8px 36px 8px 12px;
+  font: inherit;
+  font-weight: 600;
+  letter-spacing: .2px;
+  cursor: pointer;
+
+  /* glass */
+  backdrop-filter: blur(10px) saturate(160%);
+  -webkit-backdrop-filter: blur(10px) saturate(160%);
+  background-color: rgba(255,255,255,.65);
+  border: 1px solid rgba(255,255,255,.35);
+  box-shadow: 0 4px 14px rgba(0,0,0,.08);
+
+  /* arrow */
+  background-image:
+    linear-gradient(45deg, transparent 50%, var(--brand) 50%),
+    linear-gradient(135deg, var(--brand) 50%, transparent 50%),
+    linear-gradient(to right, transparent, transparent);
+  background-position: calc(100% - 18px) 50%, calc(100% - 12px) 50%, 0 0;
+  background-size: 6px 6px, 6px 6px, 100% 100%;
+  background-repeat: no-repeat;
+
+  color: var(--text);
+  transition: background-color .3s, color .3s, border-color .3s, box-shadow .3s;
+}
+.theme-select:hover{ background-color: rgba(255,255,255,.75); }
+.theme-select:focus-visible{
+  outline: 3px solid var(--brand);
+  outline-offset: 2px;
+  box-shadow: 0 0 0 3px rgba(47,134,255,.25);
+}
+
+/* Dark/Indigo glass */
+html.theme-dark .theme-select,
+html.theme-indigo .theme-select{
+  background-color: rgba(30,30,40,.45);
+  border-color: rgba(255,255,255,.15);
+  box-shadow: 0 4px 14px rgba(0,0,0,.4);
+}
+html.theme-dark .theme-select:hover,
+html.theme-indigo .theme-select:hover{
+  background-color: rgba(40,40,55,.55);
+}
+
+/* Emerald glass */
+html.theme-emerald .theme-select{
+  background-color: rgba(240,255,245,.7);
+  border-color: rgba(150,220,190,.4);
+  box-shadow: 0 4px 14px rgba(20,80,50,.15);
+}
+html.theme-emerald .theme-select:hover{
+  background-color: rgba(240,255,245,.85);
+}
+
+/* Fallback if no backdrop-filter */
+@supports not ((backdrop-filter: blur(10px)) or (-webkit-backdrop-filter: blur(10px))){
+  .theme-select{ background-color: var(--surface); border: 1px solid var(--surface-border); box-shadow: var(--surface-shadow); }
 }
