@@ -1,6 +1,4 @@
-
-<script>
-  // ---- Theme setup ----
+// ---- Theme setup ----
   const THEME_KEY = "site-theme";
   const THEMES = ["", "theme-indigo", "theme-emerald", "theme-dark"]; 
   const html = document.documentElement;
@@ -39,5 +37,3 @@ document.addEventListener("click", (e) => {
   if (!btn) return;
   console.log("[theme] button clicked");
 });
-</script>
-
