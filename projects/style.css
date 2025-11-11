@@ -4,11 +4,14 @@
    - Optional: Indigo / Emerald accents
    ========================================= */
 
+/* ---------- Design tokens ---------- */
 :root{
   /* Base */
-  --bg: #f7f8fb;            /* page background */
-  --text: #101318;          /* main text */
-  --muted: #5c6473;         /* secondary text */
+  --bg: #f7f8fb;
+  --text: #101318;
+  --muted: #5c6473;
+
+  /* Header text */
   --header-text: #ffffff;
   --header-muted: #cbd3df;
 
@@ -17,8 +20,8 @@
   --surface-border: #e5e9f1;
   --surface-shadow: 0 6px 18px rgba(17, 24, 39, 0.06);
 
-  /* Header/Nav */
-  --header-bg: #12151b;     /* near-black for crisp contrast */
+  /* Header/Nav surfaces */
+  --header-bg: #12151b;
   --nav-bg: #171b22;
 
   /* Accent (Sky / Blue) */
@@ -35,25 +38,44 @@
   --radius: 12px;
   --radius-sm: 9px;
 
-  html.theme-dark{
-  --header-text: #eaf0fb;
-  --header-muted: #bfc8d8;
-}
-
   --font-sans: "Inter", "Segoe UI", Roboto, Helvetica, Arial, system-ui, -apple-system, "Apple Color Emoji", "Segoe UI Emoji";
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
 }
 
 /* ----- Optional accent themes: add class to <html> ----- */
 html.theme-indigo{
-  --brand: #635bff;         /* bright indigo */
+  --brand: #635bff;
   --brand-600: #574fe6;
   --brand-700: #453ecc;
 }
 html.theme-emerald{
-  --brand: #10b981;         /* emerald */
+  --brand: #10b981;
   --brand-600: #0da872;
   --brand-700: #0a8e60;
+}
+
+/* ----- Manual dark theme ----- */
+html.theme-dark{
+  --bg: #0f1217;
+  --text: #e8ecf3;
+  --muted: #a7b0c2;
+
+  --surface: #171b22;
+  --surface-border: #2a3240;
+  --surface-shadow: 0 6px 18px rgba(0,0,0,.35);
+
+  --header-bg: #0b0e13;
+  --nav-bg: #0e131a;
+
+  --brand: #6aa8ff;
+  --brand-600: #5b90e0;
+  --brand-700: #4a72b8;
+
+  --nav-link: #eaf0fb;
+  --nav-link-hover: var(--brand);
+
+  --header-text: #eaf0fb;
+  --header-muted: #bfc8d8;
 }
 
 /* ---------- Global ---------- */
@@ -73,27 +95,34 @@ body{
 }
 
 p, ul, ol, pre, table, blockquote { margin: 0 0 1rem; }
-h1, h2, h3 { margin: 0 0 .65rem; line-height: 1.22; color: #0d1117; }
+h1, h2, h3 { margin: 0 0 .65rem; line-height: 1.22; }
 h1 { font-size: clamp(1.9rem, 1.6rem + 1.2vw, 2.4rem); }
 h2 { font-size: clamp(1.3rem, 1.15rem + .6vw, 1.6rem); margin-top: 1.2rem; }
 h3 { font-size: 1.1rem; margin-top: 1rem; }
 
-a { color: var(--brand-600); text-decoration: none; }
-a:hover, a:focus { text-decoration: underline; text-underline-offset: 3px; }
+/* Links: always underlined for readability */
+a {
+  color: var(--brand-600);
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+a:hover, a:focus { text-decoration-thickness: 3px; }
 
+/* Lists */
 ul { padding-left: 1.25rem; }
 li { margin: .4rem 0; }
 
 /* ---------- Header ---------- */
 header{
   background: var(--header-bg);
-  color: #fff;
+  color: var(--header-text);
   text-align: center;
   padding: 30px 16px;
   border-bottom: 1px solid rgba(255,255,255,0.08);
 }
-header h1{ color: #fff; font-weight: 700; letter-spacing: .2px; }
-header p{ margin-top: .4rem; color: #cbd3df; }
+header h1{ color: var(--header-text) !important; font-weight: 700; letter-spacing: .2px; }
+header p{ margin-top: .4rem; color: var(--header-muted) !important; }
 
 /* ---------- Navigation ---------- */
 nav{
@@ -148,7 +177,12 @@ nav a.active::after{
   border-radius: var(--radius);
   box-shadow: var(--surface-shadow);
 }
-.container h1, .container h2, .container h3 {  color: var(--text) !important }
+
+/* Scoped heading colors so header title stays bright */
+.container h1, .container h2, .container h3,
+.card h1, .card h2, .card h3 {
+  color: var(--text);
+}
 
 /* ---------- Buttons ---------- */
 .button{
@@ -173,7 +207,7 @@ nav a.active::after{
   gap: 18px;
 }
 .card{
-  background: #fff;
+  background: var(--surface);
   border: 1px solid var(--surface-border);
   border-radius: var(--radius-sm);
   padding: 14px;
@@ -188,7 +222,7 @@ nav a.active::after{
 /* ---------- Code ---------- */
 code, pre{ font-family: var(--font-mono); font-size: .95rem; }
 pre{
-  background: #0f1115;      /* dark for contrast */
+  background: #0f1115;
   color: #e7eaf0;
   padding: 16px;
   border-radius: var(--radius-sm);
@@ -202,11 +236,23 @@ code{
   border-radius: 6px;
   border: 1px solid #dbe6ff;
 }
+/* Dark variant for code blocks */
+html.theme-dark pre{
+  background: #0d1422;
+  color: #d9e4ff;
+  border: 1px solid #1a2740;
+}
+html.theme-dark code{
+  background: #0d1422;
+  color: #d9e4ff;
+  border-color: #1a2740;
+}
 
 /* ---------- Tables ---------- */
 table{ width: 100%; border-collapse: collapse; font-size: .98rem; }
 th, td{ padding: .65rem .75rem; border-bottom: 1px solid var(--surface-border); }
-th{ text-align: left; color: #0d1117; background: #f2f5fb; }
+th{ text-align: left; color: var(--text); background: #f2f5fb; }
+html.theme-dark th{ background: #121723; }
 
 /* ---------- Footer ---------- */
 footer{
@@ -233,57 +279,3 @@ img{ max-width: 100%; height: auto; }
 @media (prefers-reduced-motion: reduce){
   *{ animation: none !important; transition: none !important; scroll-behavior: auto !important; }
 }
-
-html.theme-dark{
-  --bg: #0f1217;
-  --text: #e8ecf3;
-  --muted: #a7b0c2;
-
-  --surface: #171b22;
-  --surface-border: #2a3240;
-  --surface-shadow: 0 6px 18px rgba(0,0,0,.35);
-
-  --header-bg: #0b0e13;
-  --nav-bg: #0e131a;
-
-  --brand: #6aa8ff;
-  --brand-600: #5b90e0;
-  --brand-700: #4a72b8;
-
-  --nav-link: #eaf0fb;
-  --nav-link-hover: var(--brand);
-}
-
-.card{ background: var(--surface) !important; }
-.container{ background: var(--surface); border-color: var(--surface-border); box-shadow: var(--surface-shadow); }
-header, nav, footer{ background: var(--header-bg); }
-
-h1, h2, h3{ color: var(--text) !important; }
-.container h1, .container h2, .container h3{ color: var(--text) !important; }
-
-th{ background: #f2f5fb; color: var(--text); }
-html.theme-dark th{ background: #121723; color: var(--text); }
-td, th{ border-bottom-color: var(--surface-border); }
-
-html.theme-dark pre{
-  background: #0d1422;
-  color: #d9e4ff;
-  border: 1px solid #1a2740;
-}
-html.theme-dark code{
-  background: #0d1422;
-  color: #d9e4ff;
-  border-color: #1a2740;
-}
-a{
-  text-decoration: underline;
-  text-decoration-thickness: 2px;
-  text-underline-offset: 3px;
-}
-a:hover, a:focus{ text-decoration-thickness: 3px; }
-
-
-
-header { color: var(--header-text !important); }
-header h1 { color: var(--header-text) !important; }
-header p  { color: var(--header-muted) !important; }
