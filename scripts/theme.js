@@ -32,5 +32,12 @@
 
     localStorage.setItem(THEME_KEY, next);
   });
+
+console.log("[theme] init");
+document.addEventListener("click", (e) => {
+  const btn = e.target.closest("#themeToggle");
+  if (!btn) return;
+  console.log("[theme] button clicked");
+});
 </script>
 
