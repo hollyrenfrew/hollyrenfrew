@@ -1,38 +1,50 @@
-const THEME_KEY = "site-theme";
-  const THEMES = ["", "theme-indigo", "theme-emerald", "theme-dark"]; 
+// scripts/theme.js
+(() => {
+  const KEY = "site-theme";
+  const THEMES = ["", "theme-emerald", "theme-dark", "theme-indigo"]; // order = dropdown options
   const html = document.documentElement;
 
-  // Apply saved theme ASAP (works even before the button exists)
-  (function applySavedTheme(){
-    const saved = localStorage.getItem(THEME_KEY);
-    if (saved) {
-      // clear any previous theme-* classes first
-      html.classList.forEach(c => { if (c.startsWith("theme-")) html.classList.remove(c); });
-      if (saved) html.classList.add(saved);
-    }
-  })();
+  function applyTheme(theme) {
+    // remove any existing theme-* classes
+    Array.from(html.classList)
+      .filter(c => c.startsWith("theme-"))
+      .forEach(c => html.classList.remove(c));
 
-  // Event delegation: works even if #themeToggle is injected later
-  document.addEventListener("click", (e) => {
-    const btn = e.target.closest("#themeToggle");
-    if (!btn) return;
+    if (theme) html.classList.add(theme);
+    localStorage.setItem(KEY, theme);
 
-    // find current theme class on <html>
-    const current = Array.from(html.classList).find(c => c.startsWith("theme-")) || "";
-    // compute next theme
-    const nextIndex = (THEMES.indexOf(current) + 1) % THEMES.length;
+    // optional: tint mobile address bar to header color
+    const meta = document.querySelector('meta[name="theme-color"]') || (() => {
+      const m = document.createElement('meta');
+      m.name = 'theme-color';
+      document.head.appendChild(m);
+      return m;
+    })();
+    const cs = getComputedStyle(html);
+    meta.setAttribute('content', cs.getPropertyValue('--header-bg').trim() || '#000000');
+  }
 
-    // remove any theme-* classes, then add next (if not default "")
-    THEMES.forEach(t => t && html.classList.remove(t));
-    const next = THEMES[nextIndex];
-    if (next) html.classList.add(next);
+  // Apply saved theme ASAP (default = "")
+  applyTheme(localStorage.getItem(KEY) || "");
 
-    localStorage.setItem(THEME_KEY, next);
+  // Event delegation so it works even if nav is injected later
+  document.addEventListener("change", (e) => {
+    const sel = e.target.closest("#themeSelect");
+    if (!sel) return;
+    applyTheme(sel.value);
   });
 
-console.log("[theme] init");
-document.addEventListener("click", (e) => {
-  const btn = e.target.closest("#themeToggle");
-  if (!btn) return;
-  console.log("[theme] button clicked");
-});
+  // Ensure the select exists & reflects current theme
+  function ensureSelectValue() {
+    const sel = document.getElementById("themeSelect");
+    if (!sel) return;
+    const saved = localStorage.getItem(KEY) || "";
+    sel.value = THEMES.includes(saved) ? saved : "";
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", ensureSelectValue);
+  } else {
+    ensureSelectValue();
+  }
+})();
