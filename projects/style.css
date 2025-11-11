@@ -1,109 +1,186 @@
-/* Global layout */
+/* =========================================
+   Holly Renfrew • Portfolio Styles
+   Location: /projects/style.css
+   ========================================= */
+
+/* ---------- CSS Variables (easy theming) ---------- */
+:root{
+  --bg: #f6f8fb;
+  --text: #1a1d23;
+  --muted: #5b6372;
+
+  --brand: #4ca3ff;
+  --brand-600: #2d8ef5;
+
+  --surface: #ffffff;
+  --surface-border: #e6eaf0;
+  --surface-shadow: 0 4px 14px rgba(16,24,40,0.06);
+
+  --header-bg: #171a20;
+  --nav-bg: #1d2129;
+  --nav-link: #ffffff;
+  --nav-link-hover: var(--brand);
+  --nav-active-underline: 3px;
+
+  --radius: 12px;
+  --radius-sm: 8px;
+
+  --font-sans: "Inter", "Segoe UI", Roboto, Helvetica, Arial, system-ui, -apple-system, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+}
+
+/* ---------- Global / Reset-ish ---------- */
 * { box-sizing: border-box; }
 html, body { height: 100%; }
-body {
+html { scroll-behavior: smooth; }
+body{
   margin: 0;
-  font-family: Arial, Helvetica, sans-serif;
-  background: #f5f7fa;
-  color: #1a1a1a;
+  font-family: var(--font-sans);
+  color: var(--text);
+  background: var(--bg);
   line-height: 1.6;
+  display: flex;
+  flex-direction: column;
 }
 
-/* Header and footer */
-header, footer {
-  background: #181818;
-  color: #fff;
-  text-align: center;
-  padding: 22px 12px;
-}
+/* Improve typography rhythm */
+p, ul, ol, pre, table, blockquote { margin: 0 0 1rem; }
+h1, h2, h3 { margin: 0 0 .6rem; line-height: 1.25; color: #0f1218; }
+h1 { font-size: clamp(1.8rem, 1.6rem + 1vw, 2.2rem); }
+h2 { font-size: clamp(1.25rem, 1.1rem + .6vw, 1.5rem); margin-top: 1.2rem; }
+h3 { font-size: 1.1rem; margin-top: 1rem; }
 
-/* Nav */
-nav {
-  background: #222;
-  text-align: center;
-  padding: 10px;
-}
-nav a {
+/* Links */
+a { color: var(--brand-600); text-decoration: none; }
+a:hover, a:focus { text-decoration: underline; }
+
+/* Lists */
+ul { padding-left: 1.25rem; }
+li { margin: .35rem 0; }
+
+/* ---------- Header ---------- */
+header{
+  background: var(--header-bg);
   color: #fff;
+  text-align: center;
+  padding: 28px 14px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+header h1{ color: #fff; font-weight: 700; }
+header p{ margin-top: .35rem; color: #d4d7dd; }
+
+/* ---------- Navigation ---------- */
+nav{
+  background: var(--nav-bg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: clamp(.5rem, 2vw, 1.25rem);
+  padding: 12px 16px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+}
+nav a{
+  color: var(--nav-link);
+  font-weight: 600;
   text-decoration: none;
-  margin: 0 14px;
-  font-weight: bold;
+  position: relative;
+  padding: 4px 2px;
+  transition: color .15s ease;
 }
-nav a:hover, nav a:focus {
-  color: #4ca3ff;
+nav a:hover,
+nav a:focus-visible{
+  color: var(--nav-link-hover);
+  outline: none;
+}
+nav a.active{
+  color: var(--nav-link-hover);
+}
+nav a.active::after{
+  content: "";
+  position: absolute;
+  left: 0; right: 0; bottom: -6px;
+  height: var(--nav-active-underline);
+  border-radius: 2px;
+  background: var(--brand);
 }
 
-/* Content shell */
-.container {
-  max-width: 980px;
+/* Focus ring for accessibility */
+:focus-visible{
+  outline: 2px solid var(--brand);
+  outline-offset: 3px;
+  border-radius: 6px;
+}
+
+/* ---------- Main Container ---------- */
+.container{
+  flex: 1 0 auto;
+  width: min(100%, 980px);
   margin: 28px auto;
-  background: #fff;
   padding: 28px;
-  border-radius: 8px;
-  box-shadow: 0 3px 12px rgba(0,0,0,0.08);
+  background: var(--surface);
+  border: 1px solid var(--surface-border);
+  border-radius: var(--radius);
+  box-shadow: var(--surface-shadow);
 }
 
-.container h1, .container h2, .container h3 { color: #181818 !important; margin-top: 0; } 
-h1 { font-size: 1.9rem; }
-h2 { font-size: 1.4rem; margin-top: 14px; }
-p { margin: 10px 0 16px; }
+/* Make headings inside container use dark text for contrast */
+.container h1, .container h2, .container h3 { color: #0f1218 !important; }
 
-ul { padding-left: 20px; }
-li { margin: 6px 0; }
-
-/* Buttons and links */
-.button {
+/* ---------- Buttons (utility class) ---------- */
+.button{
   display: inline-block;
   padding: 10px 14px;
-  border-radius: 6px;
-  background: #4ca3ff;
-  color: white;
+  border-radius: 10px;
+  background: var(--brand);
+  color: #fff;
   text-decoration: none;
-  font-weight: bold;
+  font-weight: 700;
+  transition: transform .06s ease, filter .15s ease;
 }
-.button:hover { opacity: 0.92; }
+.button:hover{ filter: brightness(0.96); }
+.button:active{ transform: translateY(1px); }
 
-/* Cards for screenshots or sections */
-.card-grid {
+/* ---------- Cards (for screenshots/sections) ---------- */
+.card-grid{
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
   gap: 16px;
 }
-.card {
+.card{
   background: #fff;
-  border: 1px solid #e6e8eb;
-  border-radius: 8px;
+  border: 1px solid var(--surface-border);
+  border-radius: var(--radius-sm);
   padding: 14px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  box-shadow: 0 2px 10px rgba(16,24,40,0.05);
 }
-.card img {
+.card img{
   width: 100%;
   height: auto;
-  border-radius: 6px;
-}
-
-/* Code blocks */
-pre, code {
-  font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
-}
-pre {
-  background: #0f1115;
-  color: #e5e7eb;
-  padding: 14px;
   border-radius: 8px;
+}
+
+/* ---------- Code & Preformatted ---------- */
+code, pre{ font-family: var(--font-mono); }
+pre{
+  background: #0f1115;
+  color: #e6e7eb;
+  padding: 14px;
+  border-radius: var(--radius-sm);
   overflow-x: auto;
+  border: 1px solid #11151b;
 }
 
-/* Footer */
-footer small { opacity: 0.8; }
-
-/* Responsive tweaks */
-@media (max-width: 640px) {
-  .container { margin: 16px; padding: 18px; }
-  nav a { display: inline-block; margin: 6px 10px; }
+/* Inline code */
+code{
+  background: #eef3ff;
+  color: #0f1b33;
+  padding: .1rem .35rem;
+  border-radius: 6px;
+  border: 1px solid #dbe6ff;
 }
 
-
-header h1, header p {
-  color: white !important;
-}
+/* ---------- Tables (if used) ---------- */
+table{
+  width: 100%;
+  border-collapse: collapse;
+  font-size: .98
