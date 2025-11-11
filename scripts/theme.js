@@ -1,5 +1,4 @@
-// ---- Theme setup ----
-  const THEME_KEY = "site-theme";
+const THEME_KEY = "site-theme";
   const THEMES = ["", "theme-indigo", "theme-emerald", "theme-dark"]; 
   const html = document.documentElement;
 
