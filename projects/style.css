@@ -226,3 +226,61 @@ img{ max-width: 100%; height: auto; }
 @media (prefers-reduced-motion: reduce){
   *{ animation: none !important; transition: none !important; scroll-behavior: auto !important; }
 }
+
+
+/* ===== Enable manual DARK THEME + fix hard-coded colors ===== */
+
+/* 1) Real dark theme variables */
+html.theme-dark{
+  --bg: #0f1217;
+  --text: #e8ecf3;
+  --muted: #a7b0c2;
+
+  --surface: #171b22;
+  --surface-border: #2a3240;
+  --surface-shadow: 0 6px 18px rgba(0,0,0,.35);
+
+  --header-bg: #0b0e13;
+  --nav-bg: #0e131a;
+
+  --brand: #6aa8ff;
+  --brand-600: #5b90e0;
+  --brand-700: #4a72b8;
+
+  --nav-link: #eaf0fb;
+  --nav-link-hover: var(--brand);
+}
+
+/* 2) Replace hard-coded light backgrounds with variables */
+.card{ background: var(--surface) !important; }
+.container{ background: var(--surface); border-color: var(--surface-border); box-shadow: var(--surface-shadow); }
+header, nav, footer{ background: var(--header-bg); }
+
+/* 3) Headings should use theme text color (override previous #0d1117 + !important) */
+h1, h2, h3{ color: var(--text) !important; }
+.container h1, .container h2, .container h3{ color: var(--text) !important; }
+
+/* 4) Tables */
+th{ background: #f2f5fb; color: var(--text); }
+html.theme-dark th{ background: #121723; color: var(--text); }
+td, th{ border-bottom-color: var(--surface-border); }
+
+/* 5) Code blocks (dark variant) */
+html.theme-dark pre{
+  background: #0d1422;
+  color: #d9e4ff;
+  border: 1px solid #1a2740;
+}
+html.theme-dark code{
+  background: #0d1422;
+  color: #d9e4ff;
+  border-color: #1a2740;
+}
+
+/* 6) Links: keep visible across themes */
+a{
+  text-decoration: underline;
+  text-decoration-thickness: 2px;
+  text-underline-offset: 3px;
+}
+a:hover, a:focus{ text-decoration-thickness: 3px; }
