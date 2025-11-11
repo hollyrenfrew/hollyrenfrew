@@ -4,3 +4,32 @@
   <a data-path="projects/airgead_banking.html">Airgead Banking Calculator</a>
   <a data-path="projects/python_rpg.html">Python RPG Database Project</a>
 </nav>
+
+<button class="button" id="themeToggle" style="float:right">Change Theme</button>
+
+<script>
+  const key = "site-theme";
+  const html = document.documentElement;
+
+  // Define all the themes you want to cycle through
+  const themes = ["", "theme-indigo", "theme-emerald", "theme-dark"];
+
+  // Load saved theme
+  const saved = localStorage.getItem(key);
+  if (saved) html.classList.add(saved);
+
+  // When clicked, move to the next theme in the list
+  document.getElementById('themeToggle')?.addEventListener('click', () => {
+    const current = html.classList.value.match(/theme-\w+/)?.[0] || "";
+    let nextIndex = (themes.indexOf(current) + 1) % themes.length;
+
+    // Remove any previous theme class
+    themes.forEach(t => t && html.classList.remove(t));
+
+    // Add the next one
+    if (themes[nextIndex]) html.classList.add(themes[nextIndex]);
+
+    // Save it for persistence
+    localStorage.setItem(key, themes[nextIndex]);
+  });
+</script>
