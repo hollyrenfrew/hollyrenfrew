@@ -9,6 +9,8 @@
   --bg: #f7f8fb;            /* page background */
   --text: #101318;          /* main text */
   --muted: #5c6473;         /* secondary text */
+  --header-text: #ffffff;
+  --header-muted: #cbd3df;
 
   /* Surfaces */
   --surface: #ffffff;
@@ -32,6 +34,11 @@
   --nav-active-underline: 3px;
   --radius: 12px;
   --radius-sm: 9px;
+
+  html.theme-dark{
+  --header-text: #eaf0fb;
+  --header-muted: #bfc8d8;
+}
 
   --font-sans: "Inter", "Segoe UI", Roboto, Helvetica, Arial, system-ui, -apple-system, "Apple Color Emoji", "Segoe UI Emoji";
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
@@ -141,7 +148,7 @@ nav a.active::after{
   border-radius: var(--radius);
   box-shadow: var(--surface-shadow);
 }
-.container h1, .container h2, .container h3 { color: #0d1117 !important; }
+.container h1, .container h2, .container h3 {  color: var(--text) !important }
 
 /* ---------- Buttons ---------- */
 .button{
@@ -227,10 +234,6 @@ img{ max-width: 100%; height: auto; }
   *{ animation: none !important; transition: none !important; scroll-behavior: auto !important; }
 }
 
-
-/* ===== Enable manual DARK THEME + fix hard-coded colors ===== */
-
-/* 1) Real dark theme variables */
 html.theme-dark{
   --bg: #0f1217;
   --text: #e8ecf3;
@@ -251,21 +254,17 @@ html.theme-dark{
   --nav-link-hover: var(--brand);
 }
 
-/* 2) Replace hard-coded light backgrounds with variables */
 .card{ background: var(--surface) !important; }
 .container{ background: var(--surface); border-color: var(--surface-border); box-shadow: var(--surface-shadow); }
 header, nav, footer{ background: var(--header-bg); }
 
-/* 3) Headings should use theme text color (override previous #0d1117 + !important) */
 h1, h2, h3{ color: var(--text) !important; }
 .container h1, .container h2, .container h3{ color: var(--text) !important; }
 
-/* 4) Tables */
 th{ background: #f2f5fb; color: var(--text); }
 html.theme-dark th{ background: #121723; color: var(--text); }
 td, th{ border-bottom-color: var(--surface-border); }
 
-/* 5) Code blocks (dark variant) */
 html.theme-dark pre{
   background: #0d1422;
   color: #d9e4ff;
@@ -276,11 +275,15 @@ html.theme-dark code{
   color: #d9e4ff;
   border-color: #1a2740;
 }
-
-/* 6) Links: keep visible across themes */
 a{
   text-decoration: underline;
   text-decoration-thickness: 2px;
   text-underline-offset: 3px;
 }
 a:hover, a:focus{ text-decoration-thickness: 3px; }
+
+
+
+header { color: var(--header-text); }
+header h1 { color: var(--header-text) !important; }
+header p  { color: var(--header-muted) !important; }
