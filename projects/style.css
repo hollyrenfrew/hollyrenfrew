@@ -37,22 +37,49 @@
 }
 
 
-/* Indigo: cool neutral slate with violet tint */
-html.theme-indigo{
-  --bg: #f6f6ff;                 /* soft indigo-tinted background */
-  --surface: #ffffff;
-  --surface-border: #dadcf5;
-  --surface-shadow: 0 6px 18px rgba(70, 60, 160, 0.08);
+html.theme-indigo {
+  /* Base tones */
+  --bg: #0f0f1a;                 /* rich indigo-black background */
+  --text: #e9e9f9;               /* soft off-white text */
+  --muted: #a8a8d9;              /* secondary text tint */
 
-  --brand: #635bff;
-  --brand-600: #574fe6;
-  --brand-700: #453ecc;
+  /* Surfaces */
+  --surface: #191931;            /* panels / containers */
+  --surface-border: #2a2a52;
+  --surface-shadow: 0 6px 18px rgba(50, 45, 120, 0.45);
 
-  --nav-bg: #1b1a2e;
-  --header-bg: #14132a;
+  /* Header/Nav */
+  --header-bg: #13132a;
+  --nav-bg: #171739;
 
-  --nav-link: #ffffff;
+  /* Accents */
+  --brand: #8b80ff;              /* vibrant indigo */
+  --brand-600: #776ce6;
+  --brand-700: #5d52cc;
+
+  /* Navigation links */
+  --nav-link: #eaeaff;
   --nav-link-hover: var(--brand);
+
+  /* Header text */
+  --header-text: #efefff;
+  --header-muted: #c5c5ee;
+}
+
+/* Optional: indigo-tinted code blocks for this theme */
+html.theme-indigo pre {
+  background: #1a1a33;
+  color: #e8e9ff;
+  border: 1px solid #2a2a52;
+}
+html.theme-indigo code {
+  background: #1f1f3f;
+  color: #e8e9ff;
+  border-color: #2a2a52;
+}
+html.theme-indigo th {
+  background: #1b1b38;
+  color: var(--text);
 }
 
 /* Emerald: warm neutral mint tone */
