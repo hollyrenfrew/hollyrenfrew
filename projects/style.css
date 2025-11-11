@@ -1,9 +1,3 @@
-/* =========================================
-   Accessible, pretty theme with easy swaps
-   - Default: Sky (blue)
-   - Optional: Indigo / Emerald accents
-   ========================================= */
-
 /* ---------- Design tokens ---------- */
 :root{
   /* Base */
@@ -42,19 +36,45 @@
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
 }
 
-/* ----- Optional accent themes: add class to <html> ----- */
+
+/* Indigo: cool neutral slate with violet tint */
 html.theme-indigo{
+  --bg: #f6f6ff;                 /* soft indigo-tinted background */
+  --surface: #ffffff;
+  --surface-border: #dadcf5;
+  --surface-shadow: 0 6px 18px rgba(70, 60, 160, 0.08);
+
   --brand: #635bff;
   --brand-600: #574fe6;
   --brand-700: #453ecc;
+
+  --nav-bg: #1b1a2e;
+  --header-bg: #14132a;
+
+  --nav-link: #ffffff;
+  --nav-link-hover: var(--brand);
 }
+
+/* Emerald: warm neutral mint tone */
 html.theme-emerald{
+  --bg: #f2fbf7;                 /* gentle greenish-white background */
+  --surface: #ffffff;
+  --surface-border: #d6ece1;
+  --surface-shadow: 0 6px 18px rgba(17, 77, 57, 0.07);
+
   --brand: #10b981;
   --brand-600: #0da872;
   --brand-700: #0a8e60;
+
+  --nav-bg: #14221b;
+  --header-bg: #0e1a14;
+
+  --nav-link: #ffffff;
+  --nav-link-hover: var(--brand);
 }
 
-/* ----- Manual dark theme ----- */
+
+/* ----- dark theme ----- */
 html.theme-dark{
   --bg: #0f1217;
   --text: #e8ecf3;
