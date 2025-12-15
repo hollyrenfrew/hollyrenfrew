@@ -1,63 +1,99 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Weight Tracker (Android) | Portfolio</title>
-<link rel="stylesheet" href="/hollyrenfrew/projects/style.css" />
-<link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
-<script src="../scripts/header.js"></script>
-<script src="../scripts/nav.js"></script>
-<script src="../scripts/footer.js"></script>
-<script src="../scripts/theme.js" defer></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Weight Tracker | CS-499 Capstone Portfolio</title>
+  <link rel="stylesheet" href="/hollyrenfrew/projects/style.css" />
+  <link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
+  <script src="../scripts/header.js"></script>
+  <script src="../scripts/nav.js"></script>
+  <script src="../scripts/footer.js"></script>
+  <script src="../scripts/theme.js" defer></script>
 </head>
 <body>
+  <div id="header"></div>
+  <div id="nav"></div>
 
-<div id="header"></div>
-<div id="nav"></div>
+  <div class="container">
+    <h2>Android Weight Tracker App</h2>
+    <p>
+      A mobile health app built for CS-360 and enhanced for CS-499 to support secure login, goal setting, and user data visualization.
+      This project serves as the <strong>Software Engineering and Design</strong> artifact in my capstone portfolio.
+    </p>
 
-<div class="container">
-  <h2>Project Overview</h2>
-  <p>
-    An Android app for tracking daily weights, setting a target, and receiving notifications when
-    above/below the goal. Uses SQLite, RecyclerView, and a line chart for trends.
-  </p>
+    <h2>Original Functionality</h2>
+    <ul>
+      <li>User registration and login with hashed passwords (BCrypt)</li>
+      <li>SQLite database for storing user, weight, and goal data</li>
+      <li>Weight graph using MPAndroidChart</li>
+      <li>SMS alerts upon goal achievement</li>
+      <li>Modular activities for login, dashboard, and registration</li>
+    </ul>
 
-  <h2>Key Features</h2>
-  <ul>
-    <li>Target weight with above/below toggle</li>
-    <li>Daily entries list (add/update/delete)</li>
-    <li>Trend chart (MPAndroidChart)</li>
-    <li>Optional SMS alert after consent</li>
-  </ul>
+    <h2>Enhancements for CS-499</h2>
+    <ul>
+      <li>Switched to <strong>EncryptedSharedPreferences</strong> for secure local storage</li>
+      <li>Implemented <strong>login lockout</strong> system after failed attempts</li>
+      <li>Added <strong>strong password enforcement</strong> via regex</li>
+      <li>Moved database operations to background threads</li>
+      <li>Normalized input (e.g., lowercase usernames/emails)</li>
+      <li>Improved documentation with comments and refactored logic</li>
+    </ul>
 
-  <h2>Planned Enhancement (per CS-499)</h2>
-  <p>
-    Focus on <strong>secure logins</strong>: replace plain SharedPreferences “remember me” with encrypted
-    session storage (<em>AndroidX EncryptedSharedPreferences</em>), add <strong>rate-limiting/temporary lockout</strong>
-    for repeated failures, optional <strong>2FA</strong>, and generic error messages to reduce user enumeration.
-  </p>
+    <h2>Skills Demonstrated</h2>
+    <ul>
+      <li>Secure software design and encryption practices</li>
+      <li>Performance optimization via threading</li>
+      <li>Defensive coding and validation</li>
+      <li>Professional-quality documentation</li>
+    </ul>
 
-  <h2>Skills Demonstrated</h2>
-  <ul>
-    <li>Secure software design (encryption, session tokens, lockout)</li>
-    <li>Android platform APIs (SQLite, RecyclerView, Notifications)</li>
-    <li>Usability and validation</li>
-  </ul>
+    <h2>Course Outcomes Met</h2>
+    <ul>
+      <li><strong>Outcome 4:</strong> Innovative use of secure tools and techniques (EncryptedSharedPreferences, password regex)</li>
+      <li><strong>Outcome 5:</strong> Anticipating security vulnerabilities (brute-force lockout, input sanitization)</li>
+      <li><strong>Outcome 2:</strong> Communicating enhancements clearly via in-code documentation</li>
+    </ul>
 
-  <h2>Aligned Course Outcomes</h2>
-  <ul>
-    <li><strong>2.</strong> Professional communication (clear UX &amp; messaging)</li>
-    <li><strong>4.</strong> Use well-founded tools &amp; techniques (Android security APIs)</li>
-    <li><strong>5.</strong> Security mindset (threat-aware authentication)</li>
-  </ul>
+    <h2>Visual Examples (Original Implementation)</h2>
 
-  <h2>Repository</h2>
-  <p>
-    <a href="https://github.com/hollyrenfrew/CS-360-Project-Weight-Tracker" target="_blank" rel="noopener">View Project on GitHub</a>
-  </p>
-</div>
+    <h3>SharedPreferences stored insecurely</h3>
+    <img src="../projects/screenshots/weight_tracker/plain_text_1.png" alt="User ID stored in plain SharedPreferences">
 
-<div id="footer"></div>
+    <h3>Missing login lockout mechanism</h3>
+    <img src="../projects/screenshots/weight_tracker/lockout_lack.png" alt="No lockout on login failure">
+
+    <h3>Unnormalized username/email input</h3>
+    <img src="../projects/screenshots/weight_tracker/not_normalized_input.png" alt="Input case sensitivity issue">
+
+    <h3>X-Axis mismatch in chart labels</h3>
+    <img src="../projects/screenshots/weight_tracker/x_axis.png" alt="MPAndroidChart label mismatch">
+
+    <h3>Plain SharedPreferences for SMS opt-in</h3>
+    <img src="../projects/screenshots/weight_tracker/plain_text_2.png" alt="SMS preference stored insecurely">
+
+    <h3>Minimal commenting in chart logic</h3>
+    <img src="../projects/screenshots/weight_tracker/comment_lack.png" alt="Missing method-level comments">
+
+    <h3>Unthreaded DB operations on dashboard</h3>
+    <img src="../projects/screenshots/weight_tracker/dashboard_ui_block.png" alt="DB updates on UI thread">
+
+    <h3>Direct password validation logic</h3>
+    <img src="../projects/screenshots/weight_tracker/password_validation.png" alt="Weak password enforcement">
+
+    <h3>SMS permission logic vulnerability</h3>
+    <img src="../projects/screenshots/weight_tracker/sms_permissions.png" alt="Insecure SMS alert toggle">
+
+    <h2>Repository Links</h2>
+    <ul>
+      <li><a href="https://github.com/hollyrenfrew/Weight-Tracker-App" target="_blank">Full GitHub Repository</a></li>
+      <li><a href="https://github.com/hollyrenfrew/Weight-Tracker-App/blob/main/code-review.md" target="_blank">Code Review</a></li>
+      <li><a href="https://github.com/hollyrenfrew/Weight-Tracker-App/blob/main/enhancement-plan.md" target="_blank">Enhancement Plan</a></li>
+      <li><a href="https://github.com/hollyrenfrew/Weight-Tracker-App/blob/main/README.md" target="_blank">README Summary</a></li>
+    </ul>
+  </div>
+
+  <div id="footer"></div>
 </body>
 </html>

@@ -1,61 +1,86 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Airgead Banking Calculator | Portfolio</title>
-<link rel="stylesheet" href="/hollyrenfrew/projects/style.css" />
-<link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
-<script src="../scripts/header.js"></script>
-<script src="../scripts/nav.js"></script>
-<script src="../scripts/footer.js"></script>
-<script src="../scripts/theme.js" defer></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Airgead Banking | CS-499 Capstone Portfolio</title>
+  <link rel="stylesheet" href="/hollyrenfrew/projects/style.css" />
+  <link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
+  <script src="../scripts/header.js"></script>
+  <script src="../scripts/nav.js"></script>
+  <script src="../scripts/footer.js"></script>
+  <script src="../scripts/theme.js" defer></script>
 </head>
 <body>
+  <div id="header"></div>
+  <div id="nav"></div>
 
-<div id="header"></div>
-<div id="nav"></div>
+  <div class="container">
+    <h2>Airgead Banking Investment Calculator</h2>
+    <p>
+      A C++ console application that calculates compound interest growth and provides yearly summaries based on user inputs.
+      This artifact is used for the <strong>Algorithms and Data Structures</strong> category in CS-499.
+    </p>
 
-<div class="container">
-  <h2>Project Overview</h2>
-  <p>
-    A C++ console program that computes compound interest and reports year-end balances.
-    This artifact is used for the <strong>Algorithms &amp; Data Structures</strong> category in CS-499.
-  </p>
+    <h2>Original Functionality</h2>
+    <ul>
+      <li>User input for initial investment, monthly deposit, interest rate, and investment duration</li>
+      <li>Compound interest calculations (monthly compounding)</li>
+      <li>Formatted terminal output for year-end balances and interest earned</li>
+      <li>Error handling and input validation</li>
+    </ul>
 
-  <h2>Key Features</h2>
+    <h2>Enhancements for CS-499</h2>
+    <ul>
+      <li>Added <strong>monthly breakdown logic</strong> to increase accuracy</li>
+      <li>Replaced static arrays with <code>std::vector</code> of custom structs</li>
+      <li>Improved <strong>naming conventions</strong> and <strong>consistency</strong></li>
+      <li>Modularized core logic to increase reusability</li>
+      <li>Refined input validation and error handling</li>
+      <li>Expanded comments and documentation for maintainability</li>
+    </ul>
+
+    <h2>Skills Demonstrated</h2>
+    <ul>
+      <li>Compound interest calculation using loops and formulas</li>
+      <li>Custom C++ structures and dynamic memory storage (<code>std::vector</code>)</li>
+      <li>Input validation and structured error messaging</li>
+      <li>Modular and reusable function design</li>
+    </ul>
+
+    <h2>Course Outcomes Met</h2>
+    <ul>
+      <li><strong>Outcome 3:</strong> Design and evaluate computing solutions (algorithm correctness and performance)</li>
+      <li><strong>Outcome 4:</strong> Use well-founded techniques and tools (C++ STL, user interface validation)</li>
+    </ul>
+
+    <h2>Visual Example</h2>
+    <img src="../projects/screenshots/airgead/documentation.png" alt="Lack of documentation in code">
+    
+    <h3>Getting User Input</h3>
+    <img src="../projects/screenshots/airgead/get_initial_investment.png" alt="Getting input with validation">
+
+    <h3>Loop and Balance Calculation</h3>
+    <img src="../projects/screenshots/airgead/loop_example.png" alt="Compound interest loop">
+
+    <h3>Naming Issues</h3>
+    <img src="../projects/screenshots/airgead/naming_inconsistency.png" alt="Naming inconsistency shown in code">
+
+    <h3>Interest Logic</h3>
+    <img src="../projects/screenshots/airgead/total_interest.png" alt="Total interest logic snippet">
+
+    <h3>Variable Declarations</h3>
+    <img src="../projects/screenshots/airgead/variables.png" alt="Variable declaration example">
+  </div>
+
+  <h2>Repository Links</h2>
   <ul>
-    <li>User-driven inputs: initial investment, monthly deposit, annual interest, years</li>
-    <li>Formatted annual report</li>
-    <li>Input validation and error handling</li>
+    <li><a href="https://github.com/hollyrenfrew/CS-210-Airgead-Banking" target="_blank">Full GitHub Repository</a></li>
+    <li><a href="https://github.com/hollyrenfrew/CS-210-Airgead-Banking/blob/main/code-review.md" target="_blank">Code Review</a></li>
+    <li><a href="https://github.com/hollyrenfrew/CS-210-Airgead-Banking/blob/main/enhancement-plan.md" target="_blank">Enhancement Plan</a></li>
+    <li><a href="https://github.com/hollyrenfrew/CS-210-Airgead-Banking/blob/main/README.md" target="_blank">README Summary</a></li>
   </ul>
 
-  <h2>Planned Enhancement (per CS-499)</h2>
-  <p>
-    Upgrade to <strong>monthly compounding with annual aggregation</strong> and store results in a dynamic
-    <code>std::vector</code> of structs <em>(year, ending balance, interest earned)</em>. Improves accuracy,
-    scalability, and data access patterns.
-  </p>
-
-  <h2>Skills Demonstrated</h2>
-  <ul>
-    <li>Algorithm refinement (iterative monthly compounding)</li>
-    <li>Data structure use (<code>std::vector</code> &amp; custom record type)</li>
-    <li>Modular refactoring and readability</li>
-  </ul>
-
-  <h2>Aligned Course Outcomes</h2>
-  <ul>
-    <li><strong>3.</strong> Design &amp; evaluate computing solutions (algorithmic trade-offs)</li>
-    <li><strong>4.</strong> Use well-founded techniques, skills, and tools (C++ STL, modular design)</li>
-  </ul>
-
-  <h2>Repository</h2>
-  <p>
-    <a href="https://github.com/hollyrenfrew/CS-210-Airgead-Banking" target="_blank" rel="noopener">View Code on GitHub</a>
-  </p>
-</div>
-
-<div id="footer"></div>
+  <div id="footer"></div>
 </body>
 </html>
