@@ -1,22 +1,61 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Python RPG | CS Portfolio</title>
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Python RPG | CS-499 Capstone Portfolio</title>
+  <link rel="stylesheet" href="/hollyrenfrew/projects/style.css" />
+  <link rel="icon" href="../assets/favicon.ico" type="image/x-icon">
+  <script src="../scripts/header.js"></script>
+  <script src="../scripts/nav.js"></script>
+  <script src="../scripts/footer.js"></script>
+  <script src="../scripts/theme.js" defer></script>
 </head>
 <body>
   <div id="header"></div>
   <div id="nav"></div>
 
   <div class="container">
-    <h2>Python RPG – Text Adventure Game</h2>
+    <h2>Python RPG Adventure Game</h2>
     <p>
-      This artifact demonstrates a modular Python game originally created in IT-140 and enhanced during the CS-499 Capstone
-      with better structure, game mechanics, and proposed persistent storage using SQLite.
+      A text-based Python game originally developed for IT-140 and enhanced for CS-499 to include persistent player data using SQLite.
+      This project serves as the <strong>Databases</strong> artifact in my capstone portfolio.
     </p>
 
-    <h3>Room Definition and Initialization</h3>
+    <h2>Original Functionality</h2>
+    <ul>
+      <li>Exploration through typed commands (N, S, E, W)</li>
+      <li>Combat system with player stats, weapons, and enemies</li>
+      <li>Room-based storyline with modular Python files</li>
+      <li>All data stored in memory (no saving/loading)</li>
+    </ul>
+
+    <h2>Enhancements for CS-499</h2>
+    <ul>
+      <li>Integrated <strong>SQLite</strong> database for persistent save/load</li>
+      <li>Created tables for player, rooms, inventory, and enemies</li>
+      <li>Added <strong>data access layer</strong> (`database_service.py`)</li>
+      <li>Refactored logic to support long-term progression</li>
+      <li>Sanitized user input to protect the database</li>
+      <li>Improved code comments and documentation</li>
+    </ul>
+
+    <h2>Skills Demonstrated</h2>
+    <ul>
+      <li>Database schema design and normalization</li>
+      <li>Secure input handling and defensive programming</li>
+      <li>Refactoring legacy code for scalability and maintainability</li>
+      <li>Persistent storage using Python and SQL</li>
+    </ul>
+
+    <h2>Course Outcomes Met</h2>
+    <ul>
+      <li><strong>Outcome 3:</strong> Design and evaluate computing solutions (database schema, algorithm refactor)</li>
+      <li><strong>Outcome 4:</strong> Use well-founded techniques/tools (SQLite, DAO pattern)</li>
+      <li><strong>Outcome 5:</strong> Security mindset (sanitization, structure, defensive programming)</li>
+    </ul>
+
+    <h2>Visual Example</h2>
     <img src="../projects/screenshots/python/entry_hall_instantiation.png" alt="Room object initialization">
 
     <h3>Room Data: Items, Directions, Descriptions</h3>
@@ -42,6 +81,15 @@
 
     <h3>Player Class Definition</h3>
     <img src="../projects/screenshots/python/player_class_init.png" alt="Player class attributes">
+  </div>
+
+    <h2>Repository Links</h2>
+    <ul>
+      <li><a href="https://github.com/hollyrenfrew/Python-Text-Based-Game" target="_blank">Full GitHub Repository</a></li>
+      <li><a href="https://github.com/hollyrenfrew/Python-Text-Based-Game/blob/main/code-review.md" target="_blank">Code Review</a></li>
+      <li><a href="https://github.com/hollyrenfrew/Python-Text-Based-Game/blob/main/enhancement-plan.md" target="_blank">Enhancement Plan</a></li>
+      <li><a href="https://github.com/hollyrenfrew/Python-Text-Based-Game/blob/main/README.md" target="_blank">README Summary</a></li>
+    </ul>
   </div>
 
   <div id="footer"></div>
